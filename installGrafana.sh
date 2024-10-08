@@ -48,6 +48,9 @@ service:
   loadBalancerClass: "service.k8s.aws/nlb"
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+nodeSelector:
+  eks.amazonaws.com/nodegroup: default-ng
 EOF
 
 helm repo add grafana https://grafana.github.io/helm-charts
